@@ -1,3 +1,36 @@
+@media only screen and (max-width: 600px) {
+  .only-big-screen {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .only-small-screen {
+    display: none;
+  }
+}
+body {
+  background-color: #ccff99;
+}
+
+main {
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
+
+article {
+  border-width: 0.2em;
+  border-style: solid;
+  border-radius: 0.5em;
+  text-align: center;
+}
+
+article footer {
+  font-size: 70%;
+}
+
 footer {
   text-align: center;
 }

@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.green.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.green.min.css" />
     <link rel="stylesheet" href="/assets/main.css" />
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <header class="container">
+      <nav class="only-big-screen">
         <ul></ul>
         <ul>
           <li><a href="/koncerty">Koncerty</a></li>
@@ -21,11 +21,28 @@
         </ul>
         <ul></ul>
       </nav>
+      <nav class="only-small-screen">
+        <ul></ul>
+        <ul>
+          <li><a href="/"><img src="/assets/img/logo.png" alt="Iglika" title="Iglika"/></a></li>
+        </ul>
+        <ul></ul>
+      </nav>
+      <nav class="only-small-screen">
+        <ul></ul>
+        <ul>
+          <li><a href="/koncerty">Koncerty</a></li>
+          <li><a href="/muzyka">Muzyka</a></li>
+          <li><a href="/galeria">Galeria</a></li>
+          <li><a href="/stowarzyszenie">Stowarzyszenie</a></li>
+        </ul>
+        <ul></ul>
+      </nav>
     </header>
-    <main>
+    <main class="container">
       {{ content }}
     </main>
-    <footer>
+    <footer class="container">
       <small>Iglika 2024</small>
     </footer>
   </body>
