@@ -21,14 +21,15 @@ article {
   border-width: 0.2em;
   border-style: solid;
   border-radius: 0.5em;
-  text-align: center;
 }
 
 article header {
+  text-align: center;
   background-color: #33cc33;
 }
 
 article footer {
+  text-align: center;
   font-size: 70%;
 }
 
