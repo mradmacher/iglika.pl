@@ -15,23 +15,17 @@ layout: default
   </article>
 </div>
 
-<div class="grid">
-<article>
-<header>„Oj, Šope, Šope!” - 2023</header>
-<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/AlRipHnh3TU?si=EGyo0OVIF7naQ_G0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</article>
-<article>
-<header>Po wodę do studni - 2023</header>
-<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/nedkSWgo6E4?si=emNziQzhu6Xd-rOp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</article>
-</div>
-<div class="grid">
-<article>
-<header>Eniovden – bułgarska noc świętojańska - 2023</header>
-<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/zZaUSbrk044?si=rLfHhKldjiPovjra" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</article>
-<article>
-<header>Leskovačke igre - 2015</header>
-<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/tGtyFwTSAWY?si=e6EVRXuzLnXG4d14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</article>
-</div>
+{% for video in site.data.videos %}
+  {%- assign new_grid = forloop.index | modulo: 2 -%}
+  {% if new_grid == 1 %}
+  <div class="grid">
+  {% endif %}
+    <article>
+      <header>{{ video.header }}</header>
+      <iframe width="100%" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <footer>{{ video.footer }}</footer>
+    </article>
+  {% if new_grid == 0 %}
+  </div>
+  {% endif %}
+{% endfor %}

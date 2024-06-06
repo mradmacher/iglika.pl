@@ -8,9 +8,6 @@
     display: none;
   }
 }
-body {
-  background-color: #ccff99;
-}
 
 main {
   min-height: 100vh;
@@ -25,6 +22,10 @@ article {
   border-style: solid;
   border-radius: 0.5em;
   text-align: center;
+}
+
+article header {
+  background-color: #33cc33;
 }
 
 article footer {
