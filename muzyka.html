@@ -2,3 +2,30 @@
 layout: default
 ---
 <h1>Muzyka</h1>
+
+<div class="grid">
+  <article>
+    <header>Tańce II - 2024</header>
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1769885799&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iglika-pl" title="Iglika" target="_blank" style="color: #cccccc; text-decoration: none;">Iglika</a> · <a href="https://soundcloud.com/iglika-pl/sets/tance-ii" title="Tańce II" target="_blank" style="color: #cccccc; text-decoration: none;">Tańce II</a></div>
+  </article>
+
+  <article>
+    <header>Tańce I - 2012</header>
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1709065&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iglika-pl" title="Iglika" target="_blank" style="color: #cccccc; text-decoration: none;">Iglika</a> · <a href="https://soundcloud.com/iglika-pl/sets/tance" title="Tańce" target="_blank" style="color: #cccccc; text-decoration: none;">Tańce</a></div>
+  </article>
+</div>
+
+{% for video in site.data.videos %}
+  {%- assign new_grid = forloop.index | modulo: 2 -%}
+  {% if new_grid == 1 %}
+  <div class="grid">
+  {% endif %}
+    <article>
+      <header>{{ video.header }}</header>
+      <iframe width="100%" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <footer>{{ video.footer }}</footer>
+    </article>
+  {% if new_grid == 0 %}
+  </div>
+  {% endif %}
+{% endfor %}
